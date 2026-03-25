@@ -1,7 +1,7 @@
 const stores = [
     { id: 1, name: "Tienda 1", products: [
-        { name: "Producto A", price: 5000, img: "https://via.placeholder.com/150" },
-        { name: "Producto B", price: 12000, img: "https://via.placeholder.com/150" }
+        { name: "Producto A", price: 5000, img: "img/producto1.jpg" },
+        { name: "Producto B", price: 12000, img: "img/producto2.jpg" }
     ]},
     // Repetir para las 10 tiendas...
 ];

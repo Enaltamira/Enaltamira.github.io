@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Local</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Mi Centro Comercial Digital</h1>
+        <div id="cart-icon" onclick="toggleCart()">
+            🛒 Carrito (<span id="cart-count">0</span>)
+        </div>
+    </header>
+
+    <main class="container">
+        <aside class="sidebar">
+            <h3>Tiendas</h3>
+            <nav id="store-list">
+                </nav>
+        </aside>
+
+        <section class="products-display">
+            <h2 id="store-name">Selecciona una tienda</h2>
+            <div id="products-grid" class="grid">
+                </div>
+        </section>
+    </main>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleCart()">&times;</span>
+            <h2>Tu Pedido</h2>
+            <div id="cart-items"></div>
+            <p><strong>Total: $<span id="cart-total">0</span></strong></p>
+            
+            <form id="checkout-form" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+                <input type="hidden" name="_subject" value="Nuevo Pedido Recibido">
+                <input type="text" name="nombre" placeholder="Nombre Completo" required>
+                <input type="text" name="torre" placeholder="Torre / Apto" required>
+                <input type="tel" name="nequi" placeholder="Celular Nequi" required>
+                <textarea name="pedido" id="hidden-cart-data" style="display:none"></textarea>
+                <button type="submit" class="btn-green">Pedir</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

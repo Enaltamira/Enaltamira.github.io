@@ -83,13 +83,15 @@ function loadProducts(storeId) {
             <div class="product-card">
                 <img src="${p.img}">
                 <h4>${p.name}</h4>
-                <p>$${p.price}</p>
+                <p style="font-size: 0.85rem; color: #555; margin: 5px 0;">${p.desc}</p>
+                <p style="font-size: 0.75rem; color: #888;">Peso: ${p.weight}</p>
+                
+                <p><b>$${p.price.toLocaleString()}</b></p>
                 <button class="btn-green" onclick="addToCart('${p.name}', ${p.price})">Añadir al carrito</button>
             </div>
         `;
    });
 }
-
 function addToCart(name, price) {
     cart.push({name, price});
     updateCart();

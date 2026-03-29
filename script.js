@@ -4,7 +4,34 @@ const stores = [
         { name: "Producto B", price: 12000, img: "img/producto2.jpg" }
     ]},
     // Repetir para las 10 tiendas...
+    { id: 11, name: "Legumbres El Campo", products: [
+        { name: "Cebolla Cabezona 1lb", price: 2500, img: "img/cebolla.jpg" },
+        { name: "Tomate Chonto 1lb", price: 3000, img: "img/tomate.jpg" },
+        { name: "Papa Nevada 1lb", price: 2800, img: "img/papa.jpg" }
+    ]},
+    { id: 12, name: "Droguería Vecina", products: [
+        { name: "Alcohol Antiséptico", price: 4500, img: "img/alcohol.jpg" },
+        { name: "Paquete de Tapabocas", price: 8000, img: "img/tapabocas.jpg" },
+        { name: "Crema Dental", price: 6500, img: "img/crema.jpg" }
+    ]},
+    { id: 13, name: "Mundo Mascotas", products: [
+        { name: "Snack para Perro", price: 7000, img: "img/snack_perro.jpg" },
+        { name: "Arena para Gato 5kg", price: 15000, img: "img/arena.jpg" },
+        { name: "Juguete Mordedor", price: 12000, img: "img/juguete.jpg" }
+    ]},
+    { id: 14, name: "Ferretería & Hogar", products: [
+        { name: "Bombillo LED 9W", price: 9000, img: "img/bombillo.jpg" },
+        { name: "Cinta de Enmascarar", price: 4000, img: "img/cinta.jpg" },
+        { name: "Pilas AA x4", price: 11000, img: "img/pilas.jpg" }
+    ]},
+    { id: 15, name: "Variedades & Regalos", products: [
+        { name: "Papel Regalo", price: 1500, img: "img/papel.jpg" },
+        { name: "Tarjeta de Cumpleaños", price: 3500, img: "img/tarjeta.jpg" },
+        { name: "Bolsa de Regalo Mediana", price: 4500, img: "img/bolsa.jpg" }
+    ]}
 ];
+
+
 
 let cart = [];
 

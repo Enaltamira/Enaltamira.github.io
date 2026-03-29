@@ -62,14 +62,28 @@ const stores = [
 
 let cart = [];
 
-// Cargar pestañas de tiendas
-const storeList = document.getElementById('store-list');
+// Contenedores del HTML
+const listaComer = document.getElementById('listos-comer');
+const listaPedido = document.getElementById('bajo-pedido');
+const listaServicios = document.getElementById('servicios-list');
+
 stores.forEach(store => {
     const btn = document.createElement('div');
     btn.className = 'store-tab';
     btn.innerText = store.name;
     btn.onclick = () => loadProducts(store.id);
-    storeList.appendChild(btn);
+
+    // Lógica de clasificación
+    if (store.name === "S.O.S Confección") {
+        listaServicios.appendChild(btn);
+    } 
+    else if (store.name === "Tentación Cremosa" || store.name === "El Horno de la Abuela") {
+        listaPedido.appendChild(btn);
+    } 
+    else {
+        // Queso & Crochet, La Estación de la Papa, Nubes de Azúcar
+        listaComer.appendChild(btn);
+    }
 });
 
 function loadProducts(storeId) {
@@ -101,19 +115,50 @@ function updateCart() {
     document.getElementById('cart-count').innerText = cart.length;
     const itemsDiv = document.getElementById('cart-items');
     let total = 0;
+    let resumenTexto = ""; // Variable para el texto del correo
+
     itemsDiv.innerHTML = '';
 
     cart.forEach(item => {
-        itemsDiv.innerHTML += `<p>${item.name} - $${item.price}</p>`;
+        itemsDiv.innerHTML += `<p>${item.name} - $${item.price.toLocaleString()}</p>`;
         total += item.price;
+        resumenTexto += `${item.name} ($${item.price}), `;
     });
 
-    document.getElementById('cart-total').innerText = total;
-    document.getElementById('hidden-cart-data').value = JSON.stringify(cart);
+    document.getElementById('cart-total').innerText = total.toLocaleString();
+    // Enviamos un texto claro a Formspree
+    document.getElementById('hidden-cart-data').value = `Total: $${total} | Productos: ${resumenTexto}`;
 }
 
 function toggleCart() {
 
     const modal = document.getElementById('cart-modal');
     modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+}
+
+// Llenar select de Torres (30 a 60)
+const torreSelect = document.getElementById('torre-select');
+for (let i = 30; i <= 60; i++) {
+    let opt = document.createElement('option');
+    opt.value = "Torre " + i;
+    opt.innerHTML = "Torre " + i;
+    torreSelect.appendChild(opt);
+}
+
+// Llenar select de Apartamentos (101-104, 201-204... hasta 504)
+const aptoSelect = document.getElementById('apto-select');
+for (let piso = 1; piso <= 5; piso++) {
+    for (let num = 1; num <= 4; num++) {
+        let apto = piso + "0" + num;
+        let opt = document.createElement('option');
+        opt.value = apto;
+        opt.innerHTML = apto;
+        aptoSelect.appendChild(opt);
+    }
+}
+
+// Función para el mensaje de "Pedido Agendado"
+function confirmarPedido() {
+    // Esto muestra una alerta nativa antes de que Formspree envíe el formulario
+    alert("¡Genial! Tu pedido se ha agendado correctamente. Revisa tu Nequi para el pago.");
 }

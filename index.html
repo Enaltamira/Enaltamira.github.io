@@ -70,7 +70,23 @@
             </select>
     </div>
 
-    <input type="tel" name="nequi" placeholder="Celular Nequi" required style="margin-top: 10px;">
+    <div class="form-group">
+    <label for="cliente-celular">Celular (10 dígitos):</label>
+    <input type="tel" id="cliente-celular" name="celular" 
+           pattern="[0-9]{10}" 
+           title="Debe ingresar exactamente 10 números" 
+           placeholder="3001234567" required>
+</div>
+
+<div class="form-group">
+    <label for="cliente-notas">Indicaciones especiales:</label>
+    <textarea id="cliente-notas" name="notas" 
+              placeholder="Ej: Sin cebolla, portería 2, etc."
+              oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')"></textarea>
+</div>
+
+<input type="hidden" id="hidden-cart-data" name="pedido_completo">
+    
     
     <textarea name="pedido" id="hidden-cart-data" style="display:none"></textarea>
     

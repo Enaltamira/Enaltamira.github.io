@@ -131,3 +131,39 @@ header {
     text-align: center;
     width: 100%;
 }
+/* Ajuste para que el carrito se vea perfecto en Computador */
+@media (min-width: 768px) {
+    #cart-modal, .cart-window { 
+        position: fixed;   /* Lo deja fijo en la pantalla, no se mueve al hacer scroll */
+        top: 50%;          /* Lo centra verticalmente */
+        left: 50%;         /* Lo centra horizontalmente */
+        transform: translate(-50%, -50%); /* Ajuste exacto al centro */
+        width: 450px;      /* Un ancho cómodo para PC */
+        max-height: 90vh;  /* Evita que sea más alto que la pantalla */
+        background: white;
+        z-index: 1000;     /* Lo pone por encima de todo lo demás */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra elegante */
+        padding: 20px;
+        border-radius: 15px;
+        overflow-y: auto;  /* Si hay muchos productos, sale scroll interno */
+    }
+
+    /* Fondo oscuro tras el carrito para que resalte */
+    .cart-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+    }
+}
+
+/* Asegurar que el botón de enviar siempre sea visible */
+.cart-window button, #order-form button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+}

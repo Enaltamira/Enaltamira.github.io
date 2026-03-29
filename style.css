@@ -94,7 +94,7 @@ input:invalid {
 
 /* Estilo para la caja de indicaciones */
 #cliente-notas {
-    width: 100%;
+    width: 90%;
     height: 60px; /* Altura fija inicial */
     margin-top: 5px;
     padding: 8px;

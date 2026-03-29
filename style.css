@@ -110,3 +110,24 @@ input:invalid {
     padding-top: 10px;
     border-top: 2px solid #f0f0f0;
 }
+/* Estilo para el nombre del Centro Comercial / Negocio */
+header h1 {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9800, #f44336); /* Degradado naranja a rojo */
+    color: white;
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Contenedor para que el título esté centrado */
+header {
+    text-align: center;
+    width: 100%;
+}

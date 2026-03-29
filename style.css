@@ -82,3 +82,31 @@ textarea {
 input:invalid {
     border: 1px solid red; /* Avisa visualmente si el celular está mal */
 }
+/* Limitamos la lista de productos para que no empuje el formulario */
+#cart-items {
+    max-height: 250px; /* Ajusta esta altura según prefieras */
+    overflow-y: auto;  /* Esto activa la barra de desplazamiento solo en los productos */
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #fff;
+}
+
+/* Estilo para la caja de indicaciones */
+#cliente-notas {
+    width: 100%;
+    height: 60px; /* Altura fija inicial */
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none; /* Evita que el cliente la estire y rompa el diseño */
+    display: block; /* Asegura que se vea como un bloque */
+}
+
+/* Asegura que los campos de texto siempre tengan espacio */
+.order-form-fields {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px solid #f0f0f0;
+}

@@ -1,3 +1,63 @@
+:root {
+    --fondo: #f9f7f2;      /* Crema muy claro (menas fatiga) */
+    --texto: #1a1a1a;      /* Negro casi puro para contraste máximo */
+    --accion: #27ae60;     /* Verde "Go" (Cerebro reptiliano = seguridad) */
+    --atencion: #e67e22;   /* Naranja (Contraste alto para el carrito) */
+    --blanco: #ffffff;
+}
+
+body { 
+    font-family: 'Quicksand', sans-serif; 
+    background-color: var(--fondo);
+    color: var(--texto);
+}
+
+/* Títulos grandes y directos */
+h1, h2 { 
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -1px; 
+}
+
+/* El cerebro procesa mejor grupos pequeños */
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Más grandes = más impacto */
+    gap: 30px; 
+}
+
+.product-card { 
+    background: var(--blanco);
+    padding: 20px; 
+    border-radius: 20px; /* Curvas = Amistad/Seguridad */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Profundidad para que parezca real/tangible */
+    border: 2px solid transparent;
+    transition: border 0.3s;
+}
+
+.product-card:hover {
+    border: 2px solid var(--accion); /* Feedback inmediato al mover el mouse */
+}
+
+.product-card img { 
+    border-radius: 15px;
+    margin-bottom: 15px;
+    filter: saturate(1.1); /* Colores un poco más vivos para comida */
+}
+
+/* Botón de acción: Grande y llamativo */
+.btn-green { 
+    background-color: var(--accion); 
+    font-size: 1.1rem;
+    padding: 15px;
+    border-radius: 50px; /* Forma de píldora (la más amigable) */
+    box-shadow: 0 4px 0 #1e8449; /* Efecto 3D para que den ganas de "presionar" */
+    transition: transform 0.1s;
+}
+
+.btn-green:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
 body { font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; }
 header { background: #333; color: white; padding: 1rem; display: flex; justify-content: space-between; }
 

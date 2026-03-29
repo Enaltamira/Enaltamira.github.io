@@ -115,19 +115,42 @@ function updateCart() {
     document.getElementById('cart-count').innerText = cart.length;
     const itemsDiv = document.getElementById('cart-items');
     let total = 0;
-    let resumenTexto = ""; // Variable para el texto del correo
+    let resumenTexto = "";
 
     itemsDiv.innerHTML = '';
 
+    // Agrupamos los productos por nombre
+    const conteoProductos = {};
     cart.forEach(item => {
-        itemsDiv.innerHTML += `<p>${item.name} - $${item.price.toLocaleString()}</p>`;
+        conteoProductos[item.name] = (conteoProductos[item.name] || 0) + 1;
         total += item.price;
-        resumenTexto += `${item.name} ($${item.price}), `;
     });
 
+    // Creamos el HTML con el formato "Producto x2"
+    for (const nombre in conteoProductos) {
+        const cantidad = conteoProductos[nombre];
+        const precioUnitario = cart.find(i => i.name === nombre).price;
+        const subtotal = precioUnitario * cantidad;
+
+        itemsDiv.innerHTML += `
+            <div class="cart-item-row">
+                <span class="item-name">${nombre}</span>
+                <span class="item-qty">x${cantidad}</span>
+                <span class="item-price">$${subtotal.toLocaleString()}</span>
+            </div>`;
+        
+        resumenTexto += `${nombre} (x${cantidad}), `;
+    }
+
     document.getElementById('cart-total').innerText = total.toLocaleString();
-    // Enviamos un texto claro a Formspree
-    document.getElementById('hidden-cart-data').value = `Total: $${total} | Productos: ${resumenTexto}`;
+    document.getElementById('hidden-cart-data').value = `Total: $${total} | Detalles: ${resumenTexto}`;
+    // Al final de tu función updateCart actual:
+    const notas = document.getElementById('cliente-notas').value;
+    const celular = document.getElementById('cliente-celular').value;
+    
+    // Guardamos todo en el input oculto para que te llegue al correo
+    document.getElementById('hidden-cart-data').value = 
+    `PEDIDO: ${resumenTexto} | TOTAL: $${total} | CEL: ${celular} | NOTAS: ${notas}`;
 }
 
 function toggleCart() {

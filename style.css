@@ -22,3 +22,63 @@ header { background: #333; color: white; padding: 1rem; display: flex; justify-c
 /* Estilos básicos para el Modal */
 .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
 .modal-content { background: white; margin: 10% auto; padding: 20px; width: 300px; border-radius: 10px; }
+
+/* Contenedor de los productos en el carrito */
+#cart-items {
+    max-height: 300px; /* Altura máxima antes de mostrar scroll */
+    overflow-y: auto;  /* Habilita el desplazamiento vertical */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Crea las dos columnas */
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+/* Estilo para cada fila de producto agrupado */
+.cart-item-row {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Nombre arriba, cantidad y precio abajo */
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+}
+
+.item-name {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.item-qty {
+    color: var(--primario);
+    font-weight: bold;
+}
+
+.item-price {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* En pantallas muy pequeñas, vuelve a una sola columna para que no se amontone */
+@media (max-width: 400px) {
+    #cart-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none; /* Evita que el cliente deforme el diseño */
+    font-family: inherit;
+}
+
+input:invalid {
+    border: 1px solid red; /* Avisa visualmente si el celular está mal */
+}

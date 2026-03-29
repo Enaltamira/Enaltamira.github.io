@@ -16,11 +16,24 @@
     </header>
 
     <main class="container">
-        <aside class="sidebar">
-            <h3>Tiendas</h3>
-            <nav id="store-list">
-                </nav>
-        </aside>
+<aside class="sidebar">
+    <div class="category-group">
+        <h3 style="color: var(--primario); border-bottom: 1px solid #ddd; padding-bottom: 5px;">Listos para comer</h3>
+        <nav id="store-list">
+            </nav>
+    </div>
+
+    <div class="category-group" style="margin-top: 30px;">
+        <h3 style="color: var(--acentos); border-bottom: 1px solid #ddd; padding-bottom: 5px;">Congelados y bajo pedido</h3>
+        <nav id="service-list">
+            </nav>
+    </div>
+        <div class="category-group" style="margin-top: 30px;">
+        <h3 style="color: var(--acentos); border-bottom: 1px solid #ddd; padding-bottom: 5px;">🛠️ Servicios</h3>
+        <nav id="service-list">
+            </nav>
+    </div>
+</aside>
 
         <section class="products-display">
             <h2 id="store-name">Selecciona una tienda</h2>
@@ -36,14 +49,32 @@
             <div id="cart-items"></div>
             <p><strong>Total: $<span id="cart-total">0</span></strong></p>
             
-            <form id="checkout-form" action="https://formspree.io/f/mykbgnzl" method="POST">
-                <input type="hidden" name="_subject" value="Nuevo Pedido Recibido">
-                <input type="text" name="nombre" placeholder="Nombre Completo" required>
-                <input type="text" name="torre" placeholder="Torre / Apto" required>
-                <input type="tel" name="nequi" placeholder="Celular Nequi" required>
-                <textarea name="pedido" id="hidden-cart-data" style="display:none"></textarea>
-                <button type="submit" class="btn-green">Pedir</button>
-            </form>
+<form id="checkout-form" action="https://formspree.io/f/mykbgnzl" method="POST" onsubmit="confirmarPedido()">
+    <input type="hidden" name="_subject" value="Nuevo Pedido Recibido">
+    
+    <input type="text" name="nombre" placeholder="Nombre Completo" 
+           pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" 
+           maxlength="50" 
+           title="Solo se permiten letras" required>
+
+    <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <select name="ubicacion_tipo" id="torre-select" required>
+            <option value="" disabled selected>Torre / Lugar</option>
+            <option value="Cancha">Cancha</option>
+            <option value="Plazoleta">Plazoleta</option>
+            </select>
+
+        <select name="apartamento" id="apto-select" required>
+            <option value="" disabled selected>Apto</option>
+            </select>
+    </div>
+
+    <input type="tel" name="nequi" placeholder="Celular Nequi" required style="margin-top: 10px;">
+    
+    <textarea name="pedido" id="hidden-cart-data" style="display:none"></textarea>
+    
+    <button type="submit" class="btn-green" style="margin-top: 15px;">Pedir</button>
+</form>
         </div>
     </div>
 
